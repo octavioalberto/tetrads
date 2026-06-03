@@ -1,0 +1,209 @@
+\documentclass[12pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[backend=biber, style=numeric,  bibencoding=utf8]{biblatex}
+\addbibresource{infinite_tetrads.bib}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+
+\theoremstyle{remark}
+
+\newtheorem{remark}[thm]{Remark}
+
+
+
+\begin{document}
+
+\title{Infinite tetrads of congruent factorials}
+
+
+\author{Octavio A.  Agustín-Aquino}
+\address{Instituto de Física y Matemáticas, Universidad Tecnológica de la Mixteca, Huajuapan de León, Oaxaca, México}
+\email{octavioalberto@mixteco.utm.mx}
+\urladdr{www.utm.mx/~octavioalberto} 
+
+\author{José Hernández Santiago}
+\address{Escuela Superior de Matemáticas No. 2, Universidad Autónoma de Guerrero, Ciudad Altamirano, Guerrero, México}
+\email{15620@uagro.mx}
+\urladdr{https://euclid.uagro.mx/}
+\subjclass[2020]{11B65, 11A07, 11A41}
+
+\begin{abstract}
+We prove that there exist infinitely many primes $p$ such that there exist $k_{1},k_{2},k_{3},k_{4}$ distinct
+such that
+\[
+k_{1}! \equiv k_{2}! \equiv k_{3}! \equiv k_{4}! \equiv 1 \pmod{p}.
+\]
+\end{abstract}
+
+
+ \maketitle
+
+
+\section{Introduction}
+
+Following \cite{GKP94}, we write $a\backslash b$ to mean $a$ divides $b$. The following fact is relatively well-known.
+
+\begin{lem}[Wilson's symmetry]
+Let $p$ be an odd prime and $0\leq n \leq p-1$ an odd integer such that $n!\equiv 1\pmod{p}$. Then
+\[
+(p-1-n)!\equiv 1 \pmod{p}.
+\]
+%and, in particular,
+%\[
+%(p-2)! \equiv 1 \pmod{p}.
+%\]
+\end{lem}
+\begin{proof}
+By Wilson's theorem we have $(p-1)!\equiv -1 \pmod{p}$. Then
+\[
+ (p-1)! = (p-1-n)! \prod_{k=1}^{n}(p-k).
+\]
+
+Thus, modulo $p$, we have
+\begin{align*}
+ (p-1-n)! \prod_{k=1}^{n}(p-k) &\equiv (p-1-n)!(-1)^{n}n!\\
+ &\equiv -(p-1-n)! \equiv -1 \pmod{p},
+\end{align*}
+hence $(p-1-n)!\equiv 1 \pmod{p}$. 
+\end{proof}
+
+Wilson's symmetry is crucial for the following construction.
+
+\begin{lem}[Valid tetrad]
+Let $q\geq 3$ be an odd integer, and $p$ a prime divisor of $q!-1$. If $p$ is distinct from
+$q+2$ and $2q+1$, then
+\[
+k_{1}=1,\quad k_{2}=q, \quad k_{3}=p-2,\quad k_{4}=p-1-q,
+\]
+are four different integers such that $k_{i}!\equiv 1 \pmod{p}$ for $1\leq i \leq 4$.
+\end{lem}
+
+\begin{proof}
+Since $p\backslash(q!-1)$, then $p>q$. Otherwise, $q!\equiv 0 \pmod{p}$, which contradicts
+that $q!\equiv 1 \pmod{p}$. We already have $1!,q!\equiv 1\pmod{p}$, and by Wilson's symmetry,
+$(p-2)!,(p-1-q)!\equiv 1 \pmod{p}$ because $q$ is odd. If the $k_{i}$ were not distinct, then $p-2=1$ if and only if $p=3$, $p-1-q=1$ if and only if $p=q+2$,
+$q=p-2$ if and only if $p=q+2$, or $q=p-1-q$ if and only if $p=2q+1$, or $p-2=p-1-q$ if
+and only if $q=1$, but all of these are blocked by the hypotheses.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{thm} There exist infinitely many primes $p$ such that
+\[
+|\{1\leq n\leq p-1:n!\equiv 1 \pmod{p}\}| \geq 4.
+\]
+\end{thm}
+\begin{proof}
+Let $q=6t+1$ for an integer $t\geq 1$. It follows that $q$ is odd, while
+\[
+q+2 = 6t+3 = 3(2t+1)\quad\text{and}\quad 2q+1 = 12t+3 = 3(4t+1),
+\]
+which implies $q+2$ and $2q+1$ are composite. Thus any prime divisor $p$ of $q!-1$ cannot
+be equal to $q+2$ or $2q+1$. Now $q!-1>1$, and hence such a prime $p$ exists. By the valid tetrad
+lemma, there exist $k_{1},k_{2},k_{3},k_{4}$, all distinct, such that their factorials
+coincide in having residue $1$ modulo $p$.
+
+Let $S$ be a finite set of positive primes with such a property. Choose $q=6t+1$ larger
+than any of those primes. Then $q!-1$ has a positive prime divisor $p$ that is larger than $q$, and thus
+it cannot belong to $S$, and the result follows.
+\end{proof}
+
+\begin{remark}
+This result is connected to problem A15 of Guy's compendium \cite[p. 54]{rK04} and the corresponding observation by Mąkowski \cite{Makowski1983}.
+\end{remark}
+
+\section{Some Computations}
+
+\subsection{Euclidean Scheme}
+We can obtain sequences of primes with at least a tetrad of factorials congruent to $1$ using the
+Euclidean scheme of the proof (see \cite[Section 4.3]{GKP94}). If we begin
+with $t=1$, then we have $q=6\cdot 1+1 = 7$. But $7!-1=5039$ is prime, and the smallest $q$ of the
+form $6t+1$ that is larger than $5039$ is $5041$. The least prime factor of $5041!-1$ is $20549$. This was
+found considering that if we write the prime divisor as $s=5041+r$, then by Wilson's theorem
+\[
+ (s-1)!\equiv -1\pmod{s}.
+\]
+
+By the definition of $s$, we have
+\[
+(s-1)! = 5041!5042\cdot 5043 \cdot \cdots \cdot (s-1),
+\]
+and modulo $s$ we have
+\begin{align*}
+5042\cdot 5043 \cdot\cdots \cdots (s-1) &\equiv (-r+1)(-r+2)\cdots(-1)\\
+&\equiv -(r-1)!\pmod{s}
+\end{align*}
+because $r$ is even. Thus
+\[
+ -1 \equiv 5041!(-(r-1)!) \pmod{s}.
+\]
+
+Hence $5041!\equiv 1 \pmod{s}$ if, and only if, $(r-1)!\equiv 1 \pmod{s}$. A direct check using the
+primes greater than $5041$ with a Python script yields $r=15508$. The next $q$ is $20551$, and the script yields $r=4296$ for the prime factor $s=24847$. After this the algorithm takes more than a few seconds to finish the computation.
+
+If we begin with $t=2$, then $q=6\cdot 2 + 1 = 13$, and the least prime factor of $13!-1$ is $1733$. The
+next $q$ of the form $6t+1$ is $1735$. After this the algorithm takes more than a few seconds to finish the computation.
+
+If we begin with $t=3$, then $q=6\cdot 3 +1 = 19$, and the least prime factor of $19!-1$ is $653$. Now the next $q$ of the form $6t+1$ is $655$, and the least prime factor of $655!-1$ is $5407$. After this the algorithm takes more than a few seconds to finish the computation.
+
+\subsection{Tetrads-Only Primes}
+
+It is interesting to calculate the sequence of primes $p$ that admit exactly one tetrad of factorials congruent to $1$ modulo $p$. Using a simple Python script, we can readily find its first terms:
+\[
+17, 53, 59, 73, 83, 89, 97, 139, 239, \ldots
+\]
+
+
+\section*{Acknowledgements}
+
+The exploration to find the valid tetrad lemma and the main theorem was done with ChatGPT
+5.5 Pro. The write up was done by the authors and we take full responsibility for the manuscript.
+
+\section*{Source Code}
+\subsection{Euclidean Scheme}
+\begin{verbatim}
+import sympy as sp
+
+def search_prime_divisor(n):
+  # Here n is assumed to be
+  # an odd number.
+  for s in sp.primerange(n + 1, 10**7):
+    r = s - n
+    prod = 1
+    for u in range(1,r):
+      prod = (prod * u) % s
+    if prod == 1:
+        return s,r
+\end{verbatim}
+
+\subsection{Tetrads-Only Primes}
+
+\begin{verbatim}
+import sympy as sp
+
+for p in sp.primerange(2, 10000):
+    restos = []
+    fact = 1
+
+    for n in range(1, p):
+        fact = (fact * n) % p
+
+        if fact == 1:
+            restos.append(n)
+
+            # Optional early stop:
+            # we only care about exactly 4
+            if len(restos) > 4:
+                break
+
+    if len(restos) == 4:
+        print(p)
+\end{verbatim}
+%\bibliographystyle{amsplain}
+%\bibliography{infinite_tetrads}
+\printbibliography
+\end{document}
